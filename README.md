@@ -11,7 +11,7 @@ Your journey to habit mastery begins here
 ---
 
 ## UI/UX
-![aquatrack_logo](https://github.com/user-attachments/assets/d13e7699-fbe4-4821-a483-14c676d3e809)
+![logo](https://github.com/user-attachments/assets/d13e7699-fbe4-4821-a483-14c676d3e809)
 
 ## Getting Started 🚀
 

@@ -1,9 +1,11 @@
-name: habit_quest
+name: secure_sync
 
+# Prevents multiple workflows from running simultaneously for the same job
 concurrency:
-  group: $-$
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 
+# Events triggering this workflow
 on:
   push:
     branches:
@@ -12,16 +14,15 @@ on:
     branches:
       - main
 
+# Write permission
+permissions:
+  contents: write
+
 jobs:
-  semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
-  build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_channel: stable
-
   spell-check:
+    # Runs spell-checking on documentation and Markdown files
+    name: Spell Check
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
     with:
       includes: |

@@ -16,6 +16,7 @@ unlinked_spec.ds
 
 # Firebase credentials
 android/app/google-services.json
+lib/firebase_options.dart
 ios/Runner/GoogleService-Info.plist
 web/firebase-messaging-sw.js
 

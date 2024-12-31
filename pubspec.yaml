@@ -34,3 +34,4 @@ flutter:
     - assets/images/
     - assets/icons/
     - .env
+    - firebase_options.dart

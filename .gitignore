@@ -30,10 +30,20 @@ web/firebase-messaging-sw.js
 *.ipr
 *.iws
 .idea/
+.idea/workspace.xml
+.idea/libraries/
+.idea/modules.xml
 .classpath
 .project
 .settings/
-.vscode/*
+.vscode/settings.json
+.vscode/launch.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+ios/Podfile.lock
 
 # Test and coverage
 **/test-results/
@@ -67,7 +77,6 @@ lcov.info
 **/ios/**/.vagrant/
 **/ios/**/DerivedData/
 **/ios/**/Icon?
-**/ios/**/Pods/
 **/ios/**/.symlinks/
 **/ios/**/profile
 **/ios/**/xcuserdata
@@ -86,7 +95,9 @@ lcov.info
 **/ios/Runner/GeneratedPluginRegistrant.*
 
 # Web related
-**/web/firebase-messaging-sw.js
+**/web/manifest.json
+**/web/favicon.ico
+**/web/index.html
 
 # macOS
 **/Flutter/ephemeral/
@@ -114,6 +125,24 @@ coverage/
 .github/workflows/*.generated.yml
 firebase-debug.log
 
+# Symbols and obfuscation
+app.*.symbols
+app.*.map.json
+
+# Build related
+*.freezed.dart
+*.g.dart
+lib/**/*.freezed.dart
+lib/**/*.event.dart
+lib/**/*.state.dart
+lib/versioning/build_version.dart
+
+# Flutter Settings
+.flutter_settings
+
+# FVM Version Cache
+.fvm/
+
 # Miscellaneous
 *.class
 *.lock
@@ -125,4 +154,3 @@ firebase-debug.log
 .buildlog/
 .history
 .svn/
-

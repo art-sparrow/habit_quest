@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:habit_quest/firebase_options.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -30,6 +32,11 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   // Cross-flavor configuration
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase (Backend-as-a-Service)
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Restrict app to portrait orientation
   await SystemChrome.setPreferredOrientations([

@@ -13,6 +13,13 @@ Your journey to habit mastery begins here
 ## UI/UX
 ![logo](https://github.com/user-attachments/assets/d13e7699-fbe4-4821-a483-14c676d3e809)
 
+Design pattern inspirations:
+
+- https://dribbble.com/shots/18932568-Morin-Habit-Tracker-App
+- https://dribbble.com/shots/18500320-Habit-Tracker-App-Design
+- https://dribbble.com/shots/20235106-Fitlab-Fitness-Workout-Tracker-App
+- https://dribbble.com/shots/21367995-Habit-Tracker-Mobile-IOS-App
+
 ## Getting Started 🚀
 
 This project contains 3 flavors:

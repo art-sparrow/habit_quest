@@ -1,12 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:habit_quest/app/app.dart';
-import 'package:habit_quest/counter/counter.dart';
+import 'package:habit_quest/app/view/app.dart';
 
 void main() {
   group('App', () {
-    testWidgets('renders CounterPage', (tester) async {
+    testWidgets('renders App successfully', (tester) async {
       await tester.pumpWidget(const App());
-      expect(find.byType(CounterPage), findsOneWidget);
+      expect(find.byType(App), findsOneWidget);
     });
   });
 }

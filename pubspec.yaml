@@ -1,6 +1,6 @@
 name: habit_quest
 description: Your journey to habit mastery begins here
-version: 1.0.0+107
+version: 1.0.0+108
 publish_to: none
 
 environment:

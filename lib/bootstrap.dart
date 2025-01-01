@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habit_quest/features/network/data/repository/network_repository.dart';
+import 'package:habit_quest/features/network/presentation/bloc/network_bloc.dart';
 import 'package:habit_quest/firebase_options.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -43,5 +45,18 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     DeviceOrientation.portraitUp,
   ]);
 
-  runApp(await builder());
+  // Instantiate and provide Blocs
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        // Network Bloc
+        BlocProvider(
+          create: (context) => NetworkBloc(
+            networkCheckRepository: NetworkRepository(),
+          ),
+        ),
+      ],
+      child: await builder(),
+    ),
+  );
 }

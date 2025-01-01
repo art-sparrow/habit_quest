@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_quest/features/decision/decision_screen.dart';
+import 'package:habit_quest/features/decision/presentation/decision_screen.dart';
 import 'package:habit_quest/l10n/l10n.dart';
 
 class App extends StatelessWidget {

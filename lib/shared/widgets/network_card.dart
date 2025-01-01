@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
-import 'package:habit_quest/shared/themes/app_colors.dart';
+import 'package:habit_quest/shared/utils/app_colors.dart';
 
 class NetworkCard extends StatelessWidget {
   const NetworkCard({super.key});

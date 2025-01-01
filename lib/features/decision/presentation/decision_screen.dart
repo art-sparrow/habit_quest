@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_quest/features/network/presentation/views/network_status_container.dart';
-import 'package:habit_quest/shared/themes/app_colors.dart';
+import 'package:habit_quest/shared/utils/app_colors.dart';
 
 class DecisionScreen extends StatefulWidget {
   const DecisionScreen({super.key});

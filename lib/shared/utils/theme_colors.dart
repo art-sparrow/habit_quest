@@ -5,6 +5,7 @@ class ThemeColors {
   ThemeColors({
     required this.whiteColor,
     required this.blackColor,
+    required this.greyColor,
     required this.backgroundColor,
     required this.textColor,
     required this.transparentColor,
@@ -15,6 +16,7 @@ class ThemeColors {
 
   final Color whiteColor;
   final Color blackColor;
+  final Color greyColor;
   final Color backgroundColor;
   final Color textColor;
   final Color transparentColor;
@@ -26,6 +28,7 @@ class ThemeColors {
   static final lightThemeColors = ThemeColors(
     whiteColor: AppColors.white,
     blackColor: AppColors.black,
+    greyColor: AppColors.grey,
     backgroundColor: AppColors.white,
     textColor: AppColors.black,
     transparentColor: AppColors.transparent,
@@ -38,6 +41,7 @@ class ThemeColors {
   static final darkThemeColors = ThemeColors(
     whiteColor: AppColors.black,
     blackColor: AppColors.black,
+    greyColor: AppColors.grey,
     backgroundColor: AppColors.black,
     textColor: AppColors.white,
     transparentColor: AppColors.transparent,

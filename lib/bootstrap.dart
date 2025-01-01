@@ -7,7 +7,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_quest/features/network/data/repository/network_repository.dart';
 import 'package:habit_quest/features/network/presentation/bloc/network_bloc.dart';
+import 'package:habit_quest/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:habit_quest/firebase_options.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -40,6 +42,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // Initialize SharedPreferences
+  final prefs = await SharedPreferences.getInstance();
+
   // Restrict app to portrait orientation
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -53,6 +58,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
         BlocProvider(
           create: (context) => NetworkBloc(
             networkCheckRepository: NetworkRepository(),
+          ),
+        ),
+        // Theme Bloc
+        BlocProvider(
+          create: (context) => ThemeBloc(
+            sharedPreferences: prefs,
           ),
         ),
       ],

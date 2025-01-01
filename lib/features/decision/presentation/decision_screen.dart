@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:habit_quest/features/network/presentation/views/network_status_container.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 
 class DecisionScreen extends StatefulWidget {
@@ -20,15 +19,13 @@ class _DecisionScreenState extends State<DecisionScreen> {
           right: 10,
           top: 30,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Home or Login'),
-            SizedBox(
-              height: 20,
-            ),
-            NetworkStatusContainer(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Home or Login'),
+            ],
+          ),
         ),
       ),
     );

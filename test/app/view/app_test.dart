@@ -3,7 +3,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:habit_quest/app/view/app.dart';
-import 'package:habit_quest/features/decision/presentation/decision_screen.dart';
+import 'package:habit_quest/features/decision/presentation/views/decision_screen.dart';
 import 'package:habit_quest/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

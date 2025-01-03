@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_quest/shared/utils/app_colors.dart';
+import 'package:habit_quest/shared/utils/router.dart';
 
 class DecisionScreen extends StatefulWidget {
   const DecisionScreen({super.key});
@@ -11,22 +12,31 @@ class DecisionScreen extends StatefulWidget {
 class _DecisionScreenState extends State<DecisionScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.white,
-      body: Padding(
-        padding: EdgeInsets.only(
-          left: 10,
-          right: 10,
-          top: 30,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Home or Login'),
-            ],
-          ),
-        ),
+    return Scaffold(
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          // Logged in
+          if (snapshot.hasData) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushNamed(
+                context,
+                HabitQuestRouter.landingScreenRoute,
+              );
+            });
+          }
+          // Not logged in or registered
+          else {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushNamed(
+                context,
+                HabitQuestRouter.signInScreenRoute,
+              );
+            });
+          }
+
+          return const SizedBox.shrink();
+        },
       ),
     );
   }

@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_bloc.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_event.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_state.dart';
+import 'package:habit_quest/shared/constants/assets_path.dart';
+import 'package:habit_quest/shared/utils/app_colors.dart';
+import 'package:habit_quest/shared/utils/router.dart';
+import 'package:habit_quest/shared/widgets/error_message.dart';
+import 'package:habit_quest/shared/widgets/menu_option.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  void _signOut() {
+    // Trigger sign out event
+    context.read<SignOutBloc>().add(const SignOutRequested());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //set the status bar color to transparent
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.transparent,
+      ),
+    );
+    //define gradient
+    final linearGradient = const LinearGradient(
+      colors: <Color>[AppColors.primaryColorLight, AppColors.primaryColor],
+    ).createShader(const Rect.fromLTWH(0, 0, 200, 70));
+    return Scaffold(
+      body: BlocConsumer<SignOutBloc, SignOutState>(
+        listener: (context, state) {
+          if (state is SignOutInitial) {}
+          if (state is SignOutFailure) {
+            ErrorMessage.show(context, state.errorMessage);
+          }
+          if (state is SignOutSuccess) {
+            // Navigate to the sign in screen
+            Navigator.pushNamed(
+              context,
+              HabitQuestRouter.signInScreenRoute,
+            );
+          }
+        },
+        builder: (context, state) {
+          return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      top: 50,
+                      bottom: 100,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        //profile picture
+                        const CircleAvatar(
+                          backgroundColor: AppColors.transparent,
+                          radius: 40,
+                          backgroundImage: AssetImage(
+                            AssetsPath.profilePicture,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //username
+                        SizedBox(
+                          width: 120,
+                          child: Text(
+                            'John Donathan',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              foreground: Paint()..shader = linearGradient,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ),
+                        //menus
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //theme
+                        MenuOption(
+                          title: 'Change theme',
+                          leadingIcon: const Icon(
+                            LineAwesomeIcons.lightbulb,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailingIcon: const Icon(
+                            LineAwesomeIcons.angle_right_solid,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailing: true,
+                          onTap: () {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //logout
+                        MenuOption(
+                          title: 'Sign out',
+                          leadingIcon: const Icon(
+                            LineAwesomeIcons.sign_out_alt_solid,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailingIcon: const Icon(
+                            LineAwesomeIcons.angle_right_solid,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailing: false,
+                          onTap: state is SignOutLoading ? () {} : _signOut,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

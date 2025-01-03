@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habit_quest/features/theme/presentation/bloc/theme_event.dart';
-import 'package:habit_quest/features/theme/presentation/bloc/theme_state.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_event.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_state.dart';
 import 'package:habit_quest/shared/utils/theme_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

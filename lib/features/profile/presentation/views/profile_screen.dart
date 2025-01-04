@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_bloc.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_event.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_state.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_bloc.dart';
+import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_state.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 import 'package:habit_quest/shared/utils/router.dart';
@@ -59,8 +61,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 10,
-                      right: 10,
+                      left: 20,
+                      right: 20,
                       top: 50,
                       bottom: 100,
                     ),
@@ -95,21 +97,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         //menus
                         const SizedBox(
-                          height: 20,
+                          height: 60,
                         ),
-                        //theme
-                        MenuOption(
-                          title: 'Change theme',
-                          leadingIcon: const Icon(
-                            LineAwesomeIcons.lightbulb,
-                            color: AppColors.primaryColor,
-                          ),
-                          trailingIcon: const Icon(
-                            LineAwesomeIcons.angle_right_solid,
-                            color: AppColors.primaryColor,
-                          ),
-                          trailing: true,
-                          onTap: () {},
+                        //theme selection
+                        BlocBuilder<ThemeBloc, ThemeState>(
+                          builder: (context, state) {
+                            // Switch icon based on the theme
+                            final isDarkTheme =
+                                state.themeData.brightness == Brightness.dark;
+                            return MenuOption(
+                              title: 'Change theme',
+                              leadingIcon: Icon(
+                                isDarkTheme
+                                    ? LineAwesomeIcons.moon_solid
+                                    : LineAwesomeIcons.lightbulb,
+                                color: AppColors.primaryColor,
+                              ),
+                              trailingIcon: const Icon(
+                                LineAwesomeIcons.angle_right_solid,
+                                color: AppColors.primaryColor,
+                              ),
+                              trailing: true,
+                              onTap: () async {
+                                await Navigator.pushNamed(
+                                  context,
+                                  HabitQuestRouter.changeThemeScreenRoute,
+                                );
+                              },
+                            );
+                          },
                         ),
                         const SizedBox(
                           height: 20,

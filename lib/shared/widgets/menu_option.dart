@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+import 'package:habit_quest/shared/utils/app_colors.dart';
+
+class MenuOption extends StatelessWidget {
+  const MenuOption({
+    required this.title,
+    required this.leadingIcon,
+    required this.trailingIcon,
+    required this.trailing,
+    required this.onTap,
+    super.key,
+  });
+
+  final String title;
+  final Icon leadingIcon;
+  final Icon trailingIcon;
+  final bool trailing;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: 60,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor.withOpacity(
+            0.1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryColor.withOpacity(
+                0.1,
+              ),
+              blurRadius: 12,
+              spreadRadius: 3,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(15),
+          border: Border.fromBorderSide(
+            BorderSide(
+              width: 0.1,
+              color: AppColors.primaryColor.withOpacity(
+                0.5,
+              ),
+            ),
+          ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //leading icon
+            leadingIcon,
+            // title and trailing icon
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 8,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    if (trailing) trailingIcon,
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

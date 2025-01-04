@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:habit_quest/shared/utils/app_colors.dart';
+
+class GamificationScreen extends StatefulWidget {
+  const GamificationScreen({super.key});
+
+  @override
+  State<GamificationScreen> createState() => _GamificationScreenState();
+}
+
+class _GamificationScreenState extends State<GamificationScreen> {
+  @override
+  Widget build(BuildContext context) {
+    //set the status bar color to transparent
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.transparent,
+      ),
+    );
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(
+          left: 10,
+          right: 10,
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Gamification'),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -124,6 +124,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
         BlocProvider(
           create: (context) => SignInBloc(
             signIn: signInUseCase,
+            authRepository: authRepository,
           ),
         ),
         // ResetPwd Bloc

@@ -16,3 +16,5 @@ class SignInRequested extends SignInEvent {
   @override
   List<Object> get props => [signInModel];
 }
+
+class GoogleSignInRequested extends SignInEvent {}

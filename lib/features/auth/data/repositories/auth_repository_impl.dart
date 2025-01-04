@@ -35,6 +35,24 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<void> signInViaGoogle() async {
+    // Perform Google Sign-In and get the user's email
+    final email = await authFirebase.signInViaGoogle();
+    if (email == null) {
+      throw Exception('Sign-in canceled by user.');
+    }
+
+    // Fetch user data from Firestore
+    final userModel = await authFirebase.getUserByEmail(email);
+    if (userModel == null) {
+      throw Exception('User not found in Firestore.');
+    }
+
+    // Save user data locally in ObjectBox
+    await authObjectBox.saveUserData(userModel);
+  }
+
+  @override
   Future<void> signUp(SignUpModel signUpModel) async {
     // Convert SignUpMode to SignUpEntity using the extension
     final signUpEntity = signUpModel.toEntity();

@@ -72,6 +72,11 @@ class _SignInScreenState extends State<SignInScreen> {
     }
   }
 
+  void _signInViaGoogle() {
+    // Trigger sign in event
+    context.read<SignInBloc>().add(GoogleSignInRequested());
+  }
+
   @override
   Widget build(BuildContext context) {
     //set the status bar color to transparent
@@ -86,7 +91,10 @@ class _SignInScreenState extends State<SignInScreen> {
         listener: (context, state) {
           if (state is SignInInitial) {}
           if (state is SignInFailure) {
-            ErrorMessage.show(context, state.errorMessage);
+            // Show error message only if the snackbar is not already visible
+            if (!ScaffoldMessenger.of(context).mounted) {
+              ErrorMessage.show(context, state.errorMessage);
+            }
           }
           if (state is SignInSuccess) {
             // Navigate to the login screen
@@ -216,7 +224,59 @@ class _SignInScreenState extends State<SignInScreen> {
                       buttonText: 'Sign in',
                       isLoading: state is SignInLoading,
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 25),
+                    // Google sign in
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 25,
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              color: AppColors.grey,
+                              thickness: 0.2,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                            ),
+                            child: Text(
+                              'Or continue with',
+                              style: TextStyle(
+                                color: AppColors.grey,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: AppColors.grey,
+                              thickness: 0.2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Google sign in button
+                        GestureDetector(
+                          onTap: _signInViaGoogle,
+                          child: const CircleAvatar(
+                            backgroundColor: AppColors.transparent,
+                            radius: 20,
+                            backgroundImage: AssetImage(
+                              AssetsPath.googleLogo,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 25),
                     // Sign up link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

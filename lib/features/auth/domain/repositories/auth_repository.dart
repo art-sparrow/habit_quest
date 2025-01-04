@@ -6,6 +6,7 @@ import 'package:habit_quest/features/auth/data/models/signup_model.dart';
 
 abstract class AuthRepository {
   Future<void> signIn(SignInModel signInModel);
+  Future<void> signInViaGoogle();
   Future<void> signUp(SignUpModel signUpModel);
   Future<void> resetPassword(ResetPwdModel resetPwdModel);
   // Retrieve user data (ObjectBox or Firebase)

@@ -13,12 +13,12 @@ class NetworkCard extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: AppColors.primaryColor.withOpacity(
-          0.3,
+          0.1,
         ),
         boxShadow: [
           BoxShadow(
             color: AppColors.primaryColor.withOpacity(
-              0.3,
+              0.1,
             ),
             blurRadius: 12,
             spreadRadius: 3,
@@ -27,9 +27,9 @@ class NetworkCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         border: Border.fromBorderSide(
           BorderSide(
-            width: 0.2,
+            width: 0.1,
             color: AppColors.primaryColor.withOpacity(
-              0.5,
+              0.1,
             ),
           ),
         ),

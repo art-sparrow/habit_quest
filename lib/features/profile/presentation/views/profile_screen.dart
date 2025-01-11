@@ -130,6 +130,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         const SizedBox(
                           height: 20,
                         ),
+                        //notifications
+                        MenuOption(
+                          title: 'Notifications',
+                          leadingIcon: const Icon(
+                            LineAwesomeIcons.bell_solid,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailingIcon: const Icon(
+                            LineAwesomeIcons.angle_right_solid,
+                            color: AppColors.primaryColor,
+                          ),
+                          trailing: true,
+                          onTap: state is SignOutLoading
+                              ? () {}
+                              : () async {
+                                  await Navigator.pushNamed(
+                                    context,
+                                    HabitQuestRouter.notificationsScreenRoute,
+                                  );
+                                },
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         //logout
                         MenuOption(
                           title: 'Sign out',
@@ -142,6 +166,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             color: AppColors.primaryColor,
                           ),
                           trailing: false,
+                          isLoading: state is SignOutLoading,
                           onTap: state is SignOutLoading ? () {} : _signOut,
                         ),
                       ],

@@ -8,6 +8,7 @@ import 'package:habit_quest/features/auth/presentation/blocs/signin_bloc/signin_
 import 'package:habit_quest/features/auth/presentation/blocs/signin_bloc/signin_event.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/signin_bloc/signin_state.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
+import 'package:habit_quest/shared/services/notification_service.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 import 'package:habit_quest/shared/utils/router.dart';
 import 'package:habit_quest/shared/widgets/custom_button.dart';
@@ -97,6 +98,12 @@ class _SignInScreenState extends State<SignInScreen> {
             }
           }
           if (state is SignInSuccess) {
+            // Show notification
+            NotificationService().showNotification(
+              id: 1,
+              title: 'Welcome back',
+              message: 'Pick up from where you left!',
+            );
             // Navigate to the login screen
             Navigator.pushNamed(
               context,

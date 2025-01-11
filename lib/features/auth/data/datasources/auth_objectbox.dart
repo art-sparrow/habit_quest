@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:habit_quest/features/auth/data/models/signup_model.dart';
 import 'package:habit_quest/features/auth/data/models/signup_objectbox.dart';
 import 'package:habit_quest/objectbox.g.dart';
@@ -20,6 +22,7 @@ class AuthObjectBox {
       fcmToken: modelEntity.fcmToken,
     );
     objectBox.signUpBox.put(entity);
+    log('User data saved to signUpBox: $entity');
   }
 
   Future<SignUpModel?> getUserData(String uid) async {

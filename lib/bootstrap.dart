@@ -16,6 +16,18 @@ import 'package:habit_quest/features/auth/domain/usecases/sign_up.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/reset_pwd_bloc/reset_pwd_bloc.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/signin_bloc/signin_bloc.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/signup_bloc/signup_bloc.dart';
+import 'package:habit_quest/features/habit/data/datasources/habit_firebase.dart';
+import 'package:habit_quest/features/habit/data/datasources/habit_objectbox.dart';
+import 'package:habit_quest/features/habit/data/repositories/habit_repository_impl.dart';
+import 'package:habit_quest/features/habit/domain/usecases/create_habit.dart';
+import 'package:habit_quest/features/habit/domain/usecases/create_progress.dart';
+import 'package:habit_quest/features/habit/domain/usecases/delete_habit.dart';
+import 'package:habit_quest/features/habit/domain/usecases/fetch_habits.dart';
+import 'package:habit_quest/features/habit/domain/usecases/fetch_progress.dart';
+import 'package:habit_quest/features/habit/domain/usecases/sync_habit.dart';
+import 'package:habit_quest/features/habit/domain/usecases/sync_progress.dart';
+import 'package:habit_quest/features/habit/domain/usecases/update_habit.dart';
+import 'package:habit_quest/features/habit/presentation/blocs/habit_bloc/habit_bloc.dart';
 import 'package:habit_quest/features/network/data/repository/network_repository.dart';
 import 'package:habit_quest/features/network/presentation/bloc/network_bloc.dart';
 import 'package:habit_quest/features/profile/data/datasources/profile_firebase.dart';
@@ -25,6 +37,8 @@ import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme
 import 'package:habit_quest/firebase_options.dart';
 import 'package:habit_quest/main_production.dart';
 import 'package:habit_quest/shared/helpers/objectbox.dart';
+import 'package:habit_quest/shared/services/notification_service.dart';
+//import 'package:habit_quest/shared/services/sync_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -71,10 +85,16 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     firestore: firestore,
   );
   final authObjectBox = AuthObjectBox(objectBox: objectbox);
+  final habitObjectBox = HabitObjectbox(objectBox: objectbox);
 
   // Initialze profileFirebase
   final profileFirebase = ProfileFirebase(
     firebaseAuth: firebaseAuth,
+  );
+
+  final habitFirebase = HabitFirebase(
+    firebaseAuth: firebaseAuth,
+    firestore: firestore,
   );
 
   // Initialize the authRepository
@@ -88,15 +108,38 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     profileFirebase: profileFirebase,
   );
 
-  // Initialize the sign up, sign in, and reset pwd use cases
+  // Initialize the HabitRepository
+  final habitRepository = HabitRepositoryImpl(
+    habitFirebase: habitFirebase,
+    habitObjectbox: habitObjectBox,
+    networkBloc: NetworkBloc(
+      networkCheckRepository: NetworkRepository(),
+    ),
+  );
+
+  // Initialize use cases
   final signUpUseCase = SignUp(repository: authRepository);
   final signInUseCase = SignIn(repository: authRepository);
   final resetPwdUseCase = ResetPassword(repository: authRepository);
+  final createHabitUseCase = CreateHabit(repository: habitRepository);
+  final updateHabitUseCase = UpdateHabit(repository: habitRepository);
+  final deleteHabitUseCase = DeleteHabit(repository: habitRepository);
+  final fetchHabitsUseCase = FetchHabits(repository: habitRepository);
+  final syncHabitUseCase = SyncHabit(repository: habitRepository);
+  final createProgressUseCase = CreateProgress(repository: habitRepository);
+  final fetchProgressUseCase = FetchProgress(repository: habitRepository);
+  final syncProgressUseCase = SyncProgress(repository: habitRepository);
 
   // Restrict app to portrait orientation
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
+  // Initialize NotificationService
+  await NotificationService().initialize();
+
+  // Initialize SyncService
+  //await SyncService.initialize();
 
   // Instantiate and provide Blocs
   runApp(
@@ -137,6 +180,19 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
         BlocProvider(
           create: (context) => SignOutBloc(
             profileRepository: profileRepository,
+          ),
+        ),
+        // Habit Bloc
+        BlocProvider(
+          create: (context) => HabitBloc(
+            createHabit: createHabitUseCase,
+            updateHabit: updateHabitUseCase,
+            deleteHabit: deleteHabitUseCase,
+            fetchHabits: fetchHabitsUseCase,
+            createProgress: createProgressUseCase,
+            fetchProgress: fetchProgressUseCase,
+            syncHabit: syncHabitUseCase,
+            syncProgress: syncProgressUseCase,
           ),
         ),
       ],

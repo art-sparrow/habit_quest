@@ -315,7 +315,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         DashboardCard(
                           height: 130,
                           cardColor: AppColors.yellow,
-                          cardIcon: AssetsPath.habitQuestLogo,
+                          cardIcon: AssetsPath.calendarLogo,
                           cardTitle: 'Last progress',
                           cardSubtitle: lastProgress != null
                               ? '${lastProgress!.date.month} '

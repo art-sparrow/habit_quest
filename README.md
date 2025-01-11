@@ -12,6 +12,15 @@ Your journey to habit mastery begins here
 
 ## UI/UX
 ![logo](https://github.com/user-attachments/assets/d13e7699-fbe4-4821-a483-14c676d3e809)
+![1](https://github.com/user-attachments/assets/d5a4e7c2-40c7-427f-9c8b-b08264b4e7d6)
+![2](https://github.com/user-attachments/assets/a8e5302c-9444-4ca3-9b8f-f3085a914276)
+![3](https://github.com/user-attachments/assets/7b1313dc-8c81-498e-ae9d-6d263bbca89c)
+![4](https://github.com/user-attachments/assets/7b03b942-6338-43eb-828e-2ea247e17539)
+![5](https://github.com/user-attachments/assets/81f595d8-61a6-4911-a36e-96f659c766bf)
+![6](https://github.com/user-attachments/assets/2ec3f2b0-5b38-4ae0-bd42-e6ad68d20d4c)
+![7](https://github.com/user-attachments/assets/9402b818-db36-4c98-ab44-398c24c6d998)
+![8](https://github.com/user-attachments/assets/0ac81196-3424-4a11-8f8c-5e0e42e746f8)
+
 
 Design pattern inspirations:
 

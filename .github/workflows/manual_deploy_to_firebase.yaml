@@ -27,6 +27,7 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         channel: 'stable'
+    - run: flutter clean 
     - run: flutter build apk --target=lib/main_production.dart
     
     - name: Upload Artifact to Firebase App Distribution

@@ -68,7 +68,7 @@ class NetworkCard extends StatelessWidget {
                     Text(
                       'Check your connection',
                       style: TextStyle(
-                        color: AppColors.white,
+                        color: AppColors.primaryColor,
                         fontSize: 16,
                       ),
                     ),

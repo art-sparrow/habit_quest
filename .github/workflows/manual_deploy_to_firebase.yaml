@@ -28,7 +28,7 @@ jobs:
       with:
         channel: 'stable'
     - run: flutter clean 
-    - run: flutter build apk --target=lib/main_production.dart
+    - run: flutter build apk --release --flavor production -t lib/main_production.dart
     
     - name: Upload Artifact to Firebase App Distribution
       uses: wzieba/Firebase-Distribution-Github-Action@v1

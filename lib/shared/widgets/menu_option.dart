@@ -8,6 +8,7 @@ class MenuOption extends StatelessWidget {
     required this.trailingIcon,
     required this.trailing,
     required this.onTap,
+    this.isLoading = false,
     super.key,
   });
 
@@ -16,6 +17,7 @@ class MenuOption extends StatelessWidget {
   final Icon trailingIcon;
   final bool trailing;
   final VoidCallback onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +75,15 @@ class MenuOption extends StatelessWidget {
                       ),
                     ),
                     if (trailing) trailingIcon,
+                    if (isLoading)
+                      const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                          strokeWidth: 2,
+                        ),
+                      ),
                   ],
                 ),
               ),

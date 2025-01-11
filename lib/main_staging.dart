@@ -5,7 +5,7 @@ import 'package:habit_quest/shared/helpers/objectbox.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Initialize ObjectBox
-late ObjectBox objectbox;
+late final ObjectBox objectbox;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,6 +1,6 @@
 name: habit_quest
 description: Your journey to habit mastery begins here
-version: 1.0.0+110
+version: 1.0.0+111
 publish_to: none
 
 environment:
@@ -17,8 +17,10 @@ dependencies:
   firebase_storage: ^12.3.7
   flutter:
     sdk: flutter
+  flutter_background_service: ^5.1.0
   flutter_bloc: ^8.1.6
   flutter_dotenv: ^5.2.1
+  flutter_local_notifications: ^18.0.1
   flutter_localizations:
     sdk: flutter
   freezed_annotation: ^2.4.4
@@ -32,6 +34,7 @@ dependencies:
   page_transition: ^2.1.0
   path: ^1.9.0
   path_provider: ^2.1.5
+  permission_handler: ^11.3.1
   shared_preferences: ^2.3.4
 
 dev_dependencies:

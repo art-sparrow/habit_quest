@@ -8,6 +8,7 @@ import 'package:habit_quest/features/auth/presentation/blocs/reset_pwd_bloc/rese
 import 'package:habit_quest/features/auth/presentation/blocs/reset_pwd_bloc/reset_pwd_event.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/reset_pwd_bloc/reset_pwd_state.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
+import 'package:habit_quest/shared/services/notification_service.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 import 'package:habit_quest/shared/utils/router.dart';
 import 'package:habit_quest/shared/widgets/custom_button.dart';
@@ -88,10 +89,16 @@ class _ResetPwdScreenState extends State<ResetPwdScreen> {
             ErrorMessage.show(context, state.errorMessage);
           }
           if (state is ResetPwdSuccess) {
+            // Show notification
+            NotificationService().showNotification(
+              id: 2,
+              title: 'Password reset',
+              message: 'Reset link was sent to ${emailController.text.trim()}',
+            );
             //show success message
             SuccessMessage.show(
               context,
-              'Check email for reset link',
+              'Check your email for the reset link',
             );
             // Navigate to login screen
             Navigator.pushNamed(

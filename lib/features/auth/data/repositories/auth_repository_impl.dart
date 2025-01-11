@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:habit_quest/features/auth/data/datasources/auth_firebase.dart';
 import 'package:habit_quest/features/auth/data/datasources/auth_objectbox.dart';
 import 'package:habit_quest/features/auth/data/models/reset_pwd_model.dart';
@@ -32,24 +34,23 @@ class AuthRepositoryImpl implements AuthRepository {
 
     // Save user data locally in ObjectBox
     await authObjectBox.saveUserData(userModel);
+    log('Saved user model: $userModel');
   }
 
   @override
   Future<void> signInViaGoogle() async {
     // Perform Google Sign-In and get the user's email
     final email = await authFirebase.signInViaGoogle();
-    if (email == null) {
-      throw Exception('Sign-in canceled by user.');
-    }
 
     // Fetch user data from Firestore
-    final userModel = await authFirebase.getUserByEmail(email);
+    final userModel = await authFirebase.getUserByEmail(email ?? '');
     if (userModel == null) {
       throw Exception('User not found in Firestore.');
     }
 
     // Save user data locally in ObjectBox
     await authObjectBox.saveUserData(userModel);
+    log('Saved user model: $userModel');
   }
 
   @override

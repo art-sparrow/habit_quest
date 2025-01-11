@@ -8,6 +8,7 @@ import 'package:habit_quest/features/auth/presentation/blocs/signup_bloc/signup_
 import 'package:habit_quest/features/auth/presentation/blocs/signup_bloc/signup_event.dart';
 import 'package:habit_quest/features/auth/presentation/blocs/signup_bloc/signup_state.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
+import 'package:habit_quest/shared/services/notification_service.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 import 'package:habit_quest/shared/utils/router.dart';
 import 'package:habit_quest/shared/widgets/custom_button.dart';
@@ -108,6 +109,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ErrorMessage.show(context, state.errorMessage);
           }
           if (state is SignUpSuccess) {
+            // Show notification
+            NotificationService().showNotification(
+              id: 0,
+              title: 'Welcome',
+              message: 'Enjoy your habit mastery journey!',
+            );
+            // Navigate to the home screen
             Navigator.pushNamed(
               context,
               HabitQuestRouter.landingScreenRoute,
@@ -182,7 +190,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     // phone textfield
                     CustomTextField(
                       controller: phoneController,
@@ -198,7 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     // Email textfield
                     CustomTextField(
                       controller: emailController,

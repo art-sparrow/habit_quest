@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habit_quest/features/auth/data/models/signup_objectbox.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_bloc.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_event.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/signout_bloc/signout_state.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_bloc.dart';
 import 'package:habit_quest/features/profile/presentation/blocs/theme_bloc/theme_state.dart';
+import 'package:habit_quest/main_production.dart';
 import 'package:habit_quest/shared/constants/assets_path.dart';
 import 'package:habit_quest/shared/utils/app_colors.dart';
 import 'package:habit_quest/shared/utils/router.dart';
@@ -21,6 +23,15 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late final SignUpEntity? user;
+
+  @override
+  void initState() {
+    // Fetch the first user in signUpBox
+    user = objectbox.signUpBox.getAll().firstOrNull;
+    super.initState();
+  }
+
   void _signOut() {
     // Trigger sign out event
     context.read<SignOutBloc>().add(const SignOutRequested());
@@ -84,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         SizedBox(
                           width: 120,
                           child: Text(
-                            'John Donathan',
+                            user?.name ?? 'Username',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 24,

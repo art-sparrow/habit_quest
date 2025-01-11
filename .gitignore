@@ -1,157 +1,157 @@
-# Flutter/Dart related
-**/doc/api/
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-**/generated_plugin_registrant.dart
-.packages
-.pub-preload-cache/
-.pub-cache/
-.pub/
-build/
-flutter_*.png
-linked_*.ds
-unlinked.ds
-unlinked_spec.ds
+# # Flutter/Dart related
+# **/doc/api/
+# .dart_tool/
+# .flutter-plugins
+# .flutter-plugins-dependencies
+# **/generated_plugin_registrant.dart
+# .packages
+# .pub-preload-cache/
+# .pub-cache/
+# .pub/
+# build/
+# flutter_*.png
+# linked_*.ds
+# unlinked.ds
+# unlinked_spec.ds
 
-# Firebase credentials
-android/app/google-services.json
-lib/firebase_options.dart
-ios/Runner/GoogleService-Info.plist
-web/firebase-messaging-sw.js
+# # Firebase credentials
+# android/app/google-services.json
+# lib/firebase_options.dart
+# ios/Runner/GoogleService-Info.plist
+# web/firebase-messaging-sw.js
 
-# Database (Hive/ObjectBox)
-**/hive/*.hive
-**/hive/*.lock
-**/objectbox/*.mdb
-**/objectbox/*.lock
+# # Database (Hive/ObjectBox)
+# **/hive/*.hive
+# **/hive/*.lock
+# **/objectbox/*.mdb
+# **/objectbox/*.lock
 
-# IntelliJ/VSCode/IDE files
-*.iml
-*.ipr
-*.iws
-.idea/
-.idea/workspace.xml
-.idea/libraries/
-.idea/modules.xml
-.classpath
-.project
-.settings/
-.vscode/settings.json
-.vscode/launch.json
+# # IntelliJ/VSCode/IDE files
+# *.iml
+# *.ipr
+# *.iws
+# .idea/
+# .idea/workspace.xml
+# .idea/libraries/
+# .idea/modules.xml
+# .classpath
+# .project
+# .settings/
+# .vscode/settings.json
+# .vscode/launch.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-ios/Podfile.lock
+# # Android Studio will place build artifacts here
+# /android/app/debug
+# /android/app/profile
+# /android/app/release
+# ios/Podfile.lock
 
-# Test and coverage
-**/test-results/
-**/coverage/
-lcov.info
+# # Test and coverage
+# **/test-results/
+# **/coverage/
+# lcov.info
 
-# Environment and secrets
-.env
-.env.*
+# # Environment and secrets
+# .env
+# .env.*
 
-# Android related
-**/android/**/gradle-wrapper.jar
-.gradle/
-**/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
-**/android/local.properties
-**/android/**/GeneratedPluginRegistrant.java
-**/android/key.properties
-*.jks
+# # Android related
+# **/android/**/gradle-wrapper.jar
+# .gradle/
+# **/android/captures/
+# **/android/gradlew
+# **/android/gradlew.bat
+# **/android/local.properties
+# **/android/**/GeneratedPluginRegistrant.java
+# /key.properties
+# *.jks
 
-# iOS/XCode related
-**/ios/**/*.mode1v3
-**/ios/**/*.mode2v3
-**/ios/**/*.moved-aside
-**/ios/**/*.pbxuser
-**/ios/**/*.perspectivev3
-**/ios/**/*sync/
-**/ios/**/.sconsign.dblite
-**/ios/**/.tags*
-**/ios/**/.vagrant/
-**/ios/**/DerivedData/
-**/ios/**/Icon?
-**/ios/**/.symlinks/
-**/ios/**/profile
-**/ios/**/xcuserdata
-**/ios/.generated/
-**/ios/Flutter/.last_build_id
-**/ios/Flutter/App.framework
-**/ios/Flutter/Flutter.framework
-**/ios/Flutter/Flutter.podspec
-**/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/ephemeral
-**/ios/Flutter/app.flx
-**/ios/Flutter/app.zip
-**/ios/Flutter/flutter_assets/
-**/ios/Flutter/flutter_export_environment.sh
-**/ios/ServiceDefinitions.json
-**/ios/Runner/GeneratedPluginRegistrant.*
+# # iOS/XCode related
+# **/ios/**/*.mode1v3
+# **/ios/**/*.mode2v3
+# **/ios/**/*.moved-aside
+# **/ios/**/*.pbxuser
+# **/ios/**/*.perspectivev3
+# **/ios/**/*sync/
+# **/ios/**/.sconsign.dblite
+# **/ios/**/.tags*
+# **/ios/**/.vagrant/
+# **/ios/**/DerivedData/
+# **/ios/**/Icon?
+# **/ios/**/.symlinks/
+# **/ios/**/profile
+# **/ios/**/xcuserdata
+# **/ios/.generated/
+# **/ios/Flutter/.last_build_id
+# **/ios/Flutter/App.framework
+# **/ios/Flutter/Flutter.framework
+# **/ios/Flutter/Flutter.podspec
+# **/ios/Flutter/Generated.xcconfig
+# **/ios/Flutter/ephemeral
+# **/ios/Flutter/app.flx
+# **/ios/Flutter/app.zip
+# **/ios/Flutter/flutter_assets/
+# **/ios/Flutter/flutter_export_environment.sh
+# **/ios/ServiceDefinitions.json
+# **/ios/Runner/GeneratedPluginRegistrant.*
 
-# Web related
-**/web/manifest.json
-**/web/favicon.ico
-**/web/index.html
+# # Web related
+# **/web/manifest.json
+# **/web/favicon.ico
+# **/web/index.html
 
-# macOS
-**/Flutter/ephemeral/
-**/Pods/
-**/macos/Flutter/GeneratedPluginRegistrant.swift
-**/macos/Flutter/ephemeral
-**/xcuserdata/
+# # macOS
+# **/Flutter/ephemeral/
+# **/Pods/
+# **/macos/Flutter/GeneratedPluginRegistrant.swift
+# **/macos/Flutter/ephemeral
+# **/xcuserdata/
 
-# Windows
-**/windows/flutter/ephemeral/
-**/windows/flutter/generated_plugin_registrant.cc
-**/windows/flutter/generated_plugin_registrant.h
-**/windows/flutter/generated_plugins.cmake
+# # Windows
+# **/windows/flutter/ephemeral/
+# **/windows/flutter/generated_plugin_registrant.cc
+# **/windows/flutter/generated_plugin_registrant.h
+# **/windows/flutter/generated_plugins.cmake
 
-# Linux
-**/linux/flutter/ephemeral/
-**/linux/flutter/generated_plugin_registrant.cc
-**/linux/flutter/generated_plugin_registrant.h
-**/linux/flutter/generated_plugins.cmake
+# # Linux
+# **/linux/flutter/ephemeral/
+# **/linux/flutter/generated_plugin_registrant.cc
+# **/linux/flutter/generated_plugin_registrant.h
+# **/linux/flutter/generated_plugins.cmake
 
-# Coverage
-coverage/
+# # Coverage
+# coverage/
 
-# CI/CD configurations
-.github/workflows/*.generated.yml
-firebase-debug.log
+# # CI/CD configurations
+# .github/workflows/*.generated.yml
+# firebase-debug.log
 
-# Symbols and obfuscation
-app.*.symbols
-app.*.map.json
+# # Symbols and obfuscation
+# app.*.symbols
+# app.*.map.json
 
-# Build related
-*.freezed.dart
-*.g.dart
-lib/**/*.freezed.dart
-lib/**/*.event.dart
-lib/**/*.state.dart
-lib/versioning/build_version.dart
+# # Build related
+# *.freezed.dart
+# *.g.dart
+# lib/**/*.freezed.dart
+# lib/**/*.event.dart
+# lib/**/*.state.dart
+# lib/versioning/build_version.dart
 
-# Flutter Settings
-.flutter_settings
+# # Flutter Settings
+# .flutter_settings
 
-# FVM Version Cache
-.fvm/
+# # FVM Version Cache
+# .fvm/
 
-# Miscellaneous
-*.class
-*.lock
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
+# # Miscellaneous
+# *.class
+# *.lock
+# *.log
+# *.pyc
+# *.swp
+# .DS_Store
+# .atom/
+# .buildlog/
+# .history
+# .svn/

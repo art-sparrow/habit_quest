@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.solutech.habit_quest.app-mergeStagingReleaseResources-51:/values-night-v31/values-night-v31.xml",
+            "map": [
+                {
+                    "source": "D:\\flutter\\habit_quest\\habit_quest\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
+                    "from": {
+                        "startLines": "3,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "172,1126",
+                        "endLines": "11,20",
+                        "endColumns": "12,12",
+                        "endOffsets": "775,1290"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,663",
+                        "endLines": "10,13",
+                        "endColumns": "12,12",
+                        "endOffsets": "658,827"
+                    }
+                }
+            ]
+        }
+    ]
+}

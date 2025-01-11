@@ -1,0 +1,198 @@
+-keep class j$.lang.Iterable$-CC {
+  public static void $default$forEach(java.lang.Iterable,j$.util.function.Consumer);
+}
+-keep enum j$.time.DayOfWeek {
+}
+-keep class j$.time.Duration {
+  public static j$.time.Duration ofMillis(long);
+  public long toMillis();
+}
+-keep class j$.time.Instant {
+  public j$.time.OffsetDateTime atOffset(j$.time.ZoneOffset);
+  public long toEpochMilli();
+}
+-keep class j$.time.LocalDateTime {
+  public java.lang.String format(j$.time.format.DateTimeFormatter);
+  public static j$.time.LocalDateTime parse(java.lang.CharSequence);
+  public j$.time.LocalDateTime plusDays(long);
+  public j$.time.LocalDateTime plusWeeks(long);
+}
+-keep class j$.time.OffsetDateTime {
+  public j$.time.LocalDateTime toLocalDateTime();
+}
+-keep class j$.time.TimeConversions {
+  public static java.time.Duration convert(j$.time.Duration);
+  public static j$.time.Duration convert(java.time.Duration);
+}
+-keep class j$.time.ZoneId {
+  public static j$.time.ZoneId of(java.lang.String);
+}
+-keep class j$.time.ZoneOffset {
+  j$.time.ZoneOffset UTC;
+}
+-keep class j$.time.ZonedDateTime {
+  public int getDayOfMonth();
+  public j$.time.DayOfWeek getDayOfWeek();
+  public int getHour();
+  public int getMinute();
+  public int getMonthValue();
+  public int getNano();
+  public int getSecond();
+  public int getYear();
+  public static j$.time.ZonedDateTime now(j$.time.ZoneId);
+  public static j$.time.ZonedDateTime of(int,int,int,int,int,int,int,j$.time.ZoneId);
+  public static j$.time.ZonedDateTime of(j$.time.LocalDateTime,j$.time.ZoneId);
+  public j$.time.ZonedDateTime plusDays(long);
+}
+-keep interface j$.time.chrono.ChronoZonedDateTime {
+  public boolean isBefore(j$.time.chrono.ChronoZonedDateTime);
+  public j$.time.Instant toInstant();
+}
+-keep class j$.time.format.DateTimeFormatter {
+  public java.lang.String format(j$.time.temporal.TemporalAccessor);
+  j$.time.format.DateTimeFormatter ISO_LOCAL_DATE;
+  j$.time.format.DateTimeFormatter ISO_LOCAL_DATE_TIME;
+}
+-keep interface j$.time.temporal.TemporalAccessor {
+}
+-keep interface j$.util.Collection {
+  public void forEach(j$.util.function.Consumer);
+  public j$.util.stream.Stream parallelStream();
+  public boolean removeIf(j$.util.function.Predicate);
+  public j$.util.Spliterator spliterator();
+  public j$.util.stream.Stream stream();
+  public java.lang.Object[] toArray(j$.util.function.IntFunction);
+}
+-keep class j$.util.Collection$-CC {
+  public static j$.util.stream.Stream $default$parallelStream(java.util.Collection);
+  public static boolean $default$removeIf(java.util.Collection,j$.util.function.Predicate);
+  public static j$.util.stream.Stream $default$stream(java.util.Collection);
+  public static java.lang.Object[] $default$toArray(java.util.Collection,j$.util.function.IntFunction);
+}
+-keep class j$.util.Collection$-EL {
+  public static j$.util.stream.Stream stream(java.util.Collection);
+}
+-keep class j$.util.DateRetargetClass {
+  public static j$.time.Instant toInstant(java.util.Date);
+}
+-keep class j$.util.DesugarCollections {
+  public static java.util.Map synchronizedMap(java.util.Map);
+}
+-keep class j$.util.DesugarTimeZone {
+  public static java.util.TimeZone getTimeZone(java.lang.String);
+}
+-keep interface j$.util.List {
+  public void replaceAll(j$.util.function.UnaryOperator);
+  public void sort(java.util.Comparator);
+}
+-keep class j$.util.List$-CC {
+  public static void $default$replaceAll(java.util.List,j$.util.function.UnaryOperator);
+  public static void $default$sort(java.util.List,java.util.Comparator);
+}
+-keep interface j$.util.Map {
+  public java.lang.Object compute(java.lang.Object,j$.util.function.BiFunction);
+  public java.lang.Object computeIfAbsent(java.lang.Object,j$.util.function.Function);
+  public java.lang.Object computeIfPresent(java.lang.Object,j$.util.function.BiFunction);
+  public void forEach(j$.util.function.BiConsumer);
+  public java.lang.Object getOrDefault(java.lang.Object,java.lang.Object);
+  public java.lang.Object merge(java.lang.Object,java.lang.Object,j$.util.function.BiFunction);
+  public java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object);
+  public boolean remove(java.lang.Object,java.lang.Object);
+  public java.lang.Object replace(java.lang.Object,java.lang.Object);
+  public boolean replace(java.lang.Object,java.lang.Object,java.lang.Object);
+  public void replaceAll(j$.util.function.BiFunction);
+}
+-keep class j$.util.Map$-CC {
+  public static java.lang.Object $default$compute(java.util.Map,java.lang.Object,j$.util.function.BiFunction);
+  public static java.lang.Object $default$computeIfAbsent(java.util.Map,java.lang.Object,j$.util.function.Function);
+  public static java.lang.Object $default$computeIfPresent(java.util.Map,java.lang.Object,j$.util.function.BiFunction);
+  public static void $default$forEach(java.util.Map,j$.util.function.BiConsumer);
+  public static java.lang.Object $default$merge(java.util.Map,java.lang.Object,java.lang.Object,j$.util.function.BiFunction);
+  public static java.lang.Object $default$putIfAbsent(java.util.Map,java.lang.Object,java.lang.Object);
+  public static boolean $default$remove(java.util.Map,java.lang.Object,java.lang.Object);
+  public static java.lang.Object $default$replace(java.util.Map,java.lang.Object,java.lang.Object);
+  public static boolean $default$replace(java.util.Map,java.lang.Object,java.lang.Object,java.lang.Object);
+  public static void $default$replaceAll(java.util.Map,j$.util.function.BiFunction);
+}
+-keep class j$.util.Map$-EL {
+  public static java.lang.Object getOrDefault(java.util.Map,java.lang.Object,java.lang.Object);
+}
+-keep interface j$.util.Set {
+}
+-keep interface j$.util.Spliterator {
+}
+-keep class j$.util.Spliterator$Wrapper {
+  public static java.util.Spliterator convert(j$.util.Spliterator);
+}
+-keep class j$.util.Spliterators {
+  public static j$.util.Spliterator spliterator(java.util.Collection,int);
+}
+-keep class j$.util.concurrent.ConcurrentHashMap {
+  public <init>();
+  public <init>(int,float,int);
+  public void clear();
+  public boolean containsKey(java.lang.Object);
+  public java.lang.Object get(java.lang.Object);
+  public boolean isEmpty();
+  public java.lang.Object put(java.lang.Object,java.lang.Object);
+  public java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object);
+  public java.lang.Object remove(java.lang.Object);
+  public boolean remove(java.lang.Object,java.lang.Object);
+  public java.util.Collection values();
+}
+-keep class j$.util.concurrent.ThreadLocalRandom {
+  public static j$.util.concurrent.ThreadLocalRandom current();
+}
+-keep interface j$.util.function.BiConsumer {
+}
+-keep class j$.util.function.BiConsumer$VivifiedWrapper {
+  public static j$.util.function.BiConsumer convert(java.util.function.BiConsumer);
+}
+-keep interface j$.util.function.BiFunction {
+}
+-keep class j$.util.function.BiFunction$VivifiedWrapper {
+  public static j$.util.function.BiFunction convert(java.util.function.BiFunction);
+}
+-keep interface j$.util.function.Consumer {
+}
+-keep class j$.util.function.Consumer$VivifiedWrapper {
+  public static j$.util.function.Consumer convert(java.util.function.Consumer);
+}
+-keep class j$.util.function.Consumer$Wrapper {
+  public static java.util.function.Consumer convert(j$.util.function.Consumer);
+}
+-keep interface j$.util.function.Function {
+}
+-keep class j$.util.function.Function$VivifiedWrapper {
+  public static j$.util.function.Function convert(java.util.function.Function);
+}
+-keep interface j$.util.function.IntFunction {
+}
+-keep class j$.util.function.IntFunction$VivifiedWrapper {
+  public static j$.util.function.IntFunction convert(java.util.function.IntFunction);
+}
+-keep interface j$.util.function.Predicate {
+  public j$.util.function.Predicate and(j$.util.function.Predicate);
+  public j$.util.function.Predicate negate();
+  public j$.util.function.Predicate or(j$.util.function.Predicate);
+  public boolean test(java.lang.Object);
+}
+-keep class j$.util.function.Predicate$-CC {
+  public static j$.util.function.Predicate $default$and(j$.util.function.Predicate,j$.util.function.Predicate);
+  public static j$.util.function.Predicate $default$negate(j$.util.function.Predicate);
+  public static j$.util.function.Predicate $default$or(j$.util.function.Predicate,j$.util.function.Predicate);
+}
+-keep class j$.util.function.Predicate$VivifiedWrapper {
+  public static j$.util.function.Predicate convert(java.util.function.Predicate);
+}
+-keep interface j$.util.function.UnaryOperator {
+}
+-keep class j$.util.function.UnaryOperator$VivifiedWrapper {
+  public static j$.util.function.UnaryOperator convert(java.util.function.UnaryOperator);
+}
+-keep interface j$.util.stream.Stream {
+  public boolean anyMatch(j$.util.function.Predicate);
+}
+-keep class j$.util.stream.Stream$Wrapper {
+  public static java.util.stream.Stream convert(j$.util.stream.Stream);
+}

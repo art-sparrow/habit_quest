@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <string name="default_web_client_id" translatable="false">61930010960-e8lqp8pg623t1nt909flsmvo3l9gmhmu.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">61930010960</string>
+    <string name="google_api_key" translatable="false">AIzaSyATDHj3XGBGon9tzdpcGrjUFWoejF8rsDI</string>
+    <string name="google_app_id" translatable="false">1:61930010960:android:d5b5e67fa1d8795690d455</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyATDHj3XGBGon9tzdpcGrjUFWoejF8rsDI</string>
+    <string name="google_storage_bucket" translatable="false">habitquest-aa973.firebasestorage.app</string>
+    <string name="project_id" translatable="false">habitquest-aa973</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

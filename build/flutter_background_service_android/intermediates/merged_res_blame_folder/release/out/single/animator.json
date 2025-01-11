@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_close_enter.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_close_enter.xml"
+    },
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_open_exit.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_open_exit.xml"
+    },
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_fade_enter.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_close_exit.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_close_exit.xml"
+    },
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_open_enter.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_open_enter.xml"
+    },
+    {
+        "merged": "id.flutter.flutter_background_service.flutter_background_service_android-merged_res-25:/animator/fragment_fade_exit.xml",
+        "source": "id.flutter.flutter_background_service.flutter_background_service_android-fragment-1.7.1-11:/animator/fragment_fade_exit.xml"
+    }
+]

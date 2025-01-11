@@ -1,0 +1,40 @@
+<variant
+    name="stagingRelease"
+    package="com.solutech.habit_quest"
+    minSdkVersion="23"
+    targetSdkVersion="34"
+    shrinking="true"
+    mergedManifest="D:\flutter\habit_quest\habit_quest\build\app\intermediates\merged_manifest\stagingRelease\AndroidManifest.xml"
+    manifestMergeReport="D:\flutter\habit_quest\habit_quest\build\app\outputs\logs\manifest-merger-staging-release-report.txt"
+    proguardFiles="D:\flutter\habit_quest\habit_quest\build\app\intermediates\default_proguard_files\global\proguard-android.txt-8.1.0;C:\src\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro;D:\flutter\habit_quest\habit_quest\build\app\intermediates\default_proguard_files\global\proguard-android.txt-8.1.0"
+    partialResultsDir="D:\flutter\habit_quest\habit_quest\build\app\intermediates\lint_vital_partial_results\stagingRelease\out">
+  <buildFeatures
+      coreLibraryDesugaring="true"
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src\main\AndroidManifest.xml"
+        javaDirectories="src\main\java;src\main\kotlin;src\staging\java;src\release\java;src\stagingRelease\java;src\staging\kotlin;src\release\kotlin;src\stagingRelease\kotlin"
+        resDirectories="src\main\res;src\staging\res;src\release\res;src\stagingRelease\res"
+        assetsDirectories="src\main\assets;src\staging\assets;src\release\assets;src\stagingRelease\assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="appName"
+        value="[STG] Habit Quest" />
+    <placeholder
+        name="applicationName"
+        value="android.app.Application" />
+  </manifestPlaceholders>
+  <mainArtifact
+      classOutputs="D:\flutter\habit_quest\habit_quest\build\app\intermediates\javac\stagingRelease\classes;D:\flutter\habit_quest\habit_quest\build\app\tmp\kotlin-classes\stagingRelease;D:\flutter\habit_quest\habit_quest\build\app\kotlinToolingMetadata;D:\flutter\habit_quest\habit_quest\build\app\intermediates\compile_and_runtime_not_namespaced_r_class_jar\stagingRelease\R.jar"
+      applicationId="com.solutech.habit_quest"
+      generatedSourceFolders="D:\flutter\habit_quest\habit_quest\build\app\generated\ap_generated_sources\stagingRelease\out"
+      generatedResourceFolders="D:\flutter\habit_quest\habit_quest\build\app\generated\res\google-services\staging\release;D:\flutter\habit_quest\habit_quest\build\app\generated\res\resValues\staging\release"
+      desugaredMethodsFiles="C:\Users\lilmu\.gradle\caches\transforms-3\76a33eb2d59d6abafa65a1c1f23e6769\transformed\desugar_jdk_libs_configuration-1.2.2-desugar-lint.txt;C:\Users\lilmu\.gradle\caches\transforms-3\b051070c443e5ed5953b5fa6d7781918\transformed\D8BackportedDesugaredMethods.txt">
+  </mainArtifact>
+</variant>
